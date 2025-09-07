@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Recipe history{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto mt-8 p-4">
+        <h1 class="text-3xl font-semibold mb-6">Your Recipes</h1>
+
+        <div class="space-y-6">
+            {% for recipe in page_obj %}
+                <div class="bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800">{{ recipe.title }}</h3>
+
+                    <!-- Ingredients Section -->
+                    <div class="mt-4">
+                        <h4 class="text-lg font-medium text-gray-700">Ingredients:</h4>
+                        <ul class="list-disc ml-6 text-gray-600">
+                            {% for ingredient in recipe.ingredients %}
+                                <li>{{ ingredient }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Instructions Section -->
+                    <div class="mt-4">
+                        <h4 class="text-lg font-medium text-gray-700">Instructions:</h4>
+                        <ul class="list-disc ml-6 text-gray-600">  <!-- Changed to unordered list -->
+                            {% for instruction in recipe.instructions %}
+                                <li>{{ instruction }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Nutrition Section -->
+                    <div class="mt-4">
+                        <h4 class="text-lg font-medium text-gray-700">Nutritional Information:</h4>
+                        <ul class="text-gray-600">
+                            <li><strong>Calories:</strong> {{ recipe.nutrition.calories }}</li>
+                            <li><strong>Protein:</strong> {{ recipe.nutrition.protein }}</li>
+                            <li><strong>Carbohydrates:</strong> {{ recipe.nutrition.carbohydrates }}</li>
+                            <li><strong>Fat:</strong> {{ recipe.nutrition.fat }}</li>
+                        </ul>
+                    </div>
+
+                    <!-- Created At Section -->
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-500"><strong>Created at:</strong> {{ recipe.created_at }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination controls -->
+        <div class="mt-8">
+            <div class="flex justify-center space-x-4">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" class="text-blue-500 hover:text-blue-700">&laquo; First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="text-blue-500 hover:text-blue-700">Previous</a>
+                {% endif %}
+
+                <span class="text-gray-600">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="text-blue-500 hover:text-blue-700">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" class="text-blue-500 hover:text-blue-700">Last &raquo;</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

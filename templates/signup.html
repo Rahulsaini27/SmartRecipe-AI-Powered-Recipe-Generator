@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="signup-wrapper">
+    <div class="signup-container">
+        <!-- Left Side Image -->
+        <div class="signup-image">
+            <img src="https://octopod.co.in/slink/images/login.svg" alt="Signup Illustration">
+        </div>
+
+        <!-- Right Side Form -->
+        <div class="signup-form">
+            <h2 class="text-center">Signup</h2>
+
+            {% if messages %}
+                <div class="alert alert-danger">
+                    {% for message in messages %}
+                        {{ message }}<br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                    {% for error in form.username.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                    {% for error in form.email.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter your password" required>
+                    {% for error in form.password1.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm your password" required>
+                    {% for error in form.password2.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mt-3">Signup</button>
+            </form>
+
+            <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
