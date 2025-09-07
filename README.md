@@ -1,7 +1,7 @@
 # 🍳 SmartRecipe: AI-Powered Recipe Generator
 
 <div align="center">
-  <img src="images/banner.png" alt="SmartRecipe Banner" width="800"/>
+  <img src="./Screenshots/image.png" alt="SmartRecipe Banner" width="800"/>
   
   [![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://djangoproject.com/)
   [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
@@ -92,7 +92,7 @@ graph TD
 > Clean and simple user registration interface
 
 ### 🔐 Login Page
-<img src="./Screenshots/login.png"Login Page" width="800"/>
+<img src="./Screenshots/login.png" alt="Login Page" width="800"/>
 
 > Secure user authentication portal
 
@@ -150,7 +150,7 @@ graph TD
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/smartrecipe.git
+   git clone https://github.com/Rahulsaini27/SmartRecipe-AI-Powered-Recipe-Generator.git
    cd smartrecipe
    ```
 
@@ -248,7 +248,7 @@ We welcome contributions from the community! Here's how you can help:
 
 1. **🍴 Fork the repository**
    ```bash
-   git fork https://github.com/your-username/smartrecipe.git
+   git fork https://github.com/Rahulsaini27/SmartRecipe-AI-Powered-Recipe-Generator.git
    ```
 
 2. **🌿 Create a feature branch**
@@ -318,9 +318,9 @@ copies or substantial portions of the Software.
 ### 👨‍💻 Developer Information
 
 **Your Name**  
-📧 **Email**: your-email@example.com  
-🐙 **GitHub**: [@your-github-username](https://github.com/your-github-username)  
-💼 **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)  
+📧 **Email**: rahulsaini42854@gmail.com  
+🐙 **GitHub**: [Rahulsaini27](https://github.com/Rahulsaini27/SmartRecipe-AI-Powered-Recipe-Generator)  
+💼 **LinkedIn**: [Rahul LinkedIn Profile](https://www.linkedin.com/in/rahul-saini-3994a2241/)  
 
 ---
 
