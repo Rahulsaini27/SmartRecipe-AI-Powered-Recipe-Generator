@@ -6,15 +6,15 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-
+# Environment variables
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key")
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+ALLOWED_HOSTS = ["*"]  # Render will override automatically
 
-ALLOWED_HOSTS = ["*"]  # Render will override
-
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'recipe_generator',
+    'recipe_generator',  # project app
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -33,26 +33,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'recipe_generator.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
 WSGI_APPLICATION = 'recipe_generator.wsgi.application'
 
-# DATABASE FOR RENDER
+# Database for Render
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -60,12 +43,15 @@ DATABASES = {
     }
 }
 
+# Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
+# Static files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # For Render deployment
 
+# Default primary key field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
